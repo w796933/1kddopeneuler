@@ -1,3 +1,3 @@
-# livepve+diweb
+# setup
 
-check https://gitee.com/minlearn/minlearnprogramming/tree/master/p/livepvediweb/
+diweb.sh -t openeuler
