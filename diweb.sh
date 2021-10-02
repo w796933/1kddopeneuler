@@ -10,12 +10,12 @@
 # =================================================================
 
 # mirror settings(deb and img)
-#export custDEBMIRROR0='https://github.com/minlearn/minstack/raw/master'
-export custDEBMIRROR1='https://minlearn.coding.net/p/mytechrepos/d/minstack/git/raw/master'
+export custDEBMIRROR0='https://github.com/minlearn/openeuler/raw/master'
+#export custDEBMIRROR1='https://minlearn.coding.net/p/mytechrepos/d/minstack/git/raw/master'
 #export custDEBMIRROR2='https://gitee.com/minlearn/minstack/raw/master'
 
-#export custIMGMIRROR0='https://github.com/minlearn/minstack/raw/master'
-export custIMGMIRROR1='https://minlearn.coding.net/p/mytechrepos/d/minstack/git/raw/master'
+export custIMGMIRROR0='https://github.com/minlearn/openeuler/raw/master'
+#export custIMGMIRROR1='https://minlearn.coding.net/p/mytechrepos/d/minstack/git/raw/master'
 
 # BUILD/HOST/TARGET tripe,most usually are auto informed
 export tmpBUILD='0' #0:linux,1:unix,osx,2,lxc
@@ -89,10 +89,10 @@ while [[ $# -ge 1 ]]; do
       tmpTARGET="$1"
       case $tmpTARGET in
         debianbase) tmpTARGETMODE='1' ;;
-        minstackos) 
-          [[ "$tmpHOST" != '2' && "$tmpTARGET" == 'minstackos' ]] && tmpTARGETMODEL=1 || tmpTARGETMODEL='0'
-          [[ "$tmpTARGETMODE" != '1' ]] && echo "instonly mode detected" && tmpTARGETDDURL=$custIMGMIRROR1/_build/minstackos/minstack_
-          [[ "$tmpTARGETMODE" == '1' ]] && echo "fullgen mode detected" && tmpTARGETDDURL=$custIMGMIRROR1/_build/minstackos/minstack_ ;;
+        openeuler) 
+          [[ "$tmpHOST" != '2' && "$tmpTARGET" == 'openeuler' ]] && tmpTARGETMODEL=1 || tmpTARGETMODEL='0'
+          [[ "$tmpTARGETMODE" != '1' ]] && echo "instonly mode detected" && tmpTARGETDDURL=$custIMGMIRROR1/_build/openeuler/openeuler_
+          [[ "$tmpTARGETMODE" == '1' ]] && echo "fullgen mode detected" && tmpTARGETDDURL=$custIMGMIRROR1/_build/openeuler/openeuler_ ;;
         deepin20|win10ltsc|winsrv2019|dsm61715284|osx10146) tmpTARGETMODE='0';tmpTARGETDDURL=$custIMGMIRROR1/$tmpTARGET".gz" ;;
         *) echo "$tmpTARGET" |grep -q '^http://\|^ftp://\|^https://';[[ $? -ne '0' ]] && echo "targetname not known" && exit 1 || echo "raw urls detected" && tmpTARGETDDURL=$tmpTARGET ;;
       esac
