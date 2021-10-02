@@ -622,9 +622,9 @@ preparepreseed(){
 
   # azure hd need bs=10M or it will fail
   [[ "$UNZIP" == '0' ]] && PIPECMDSTR='wget -qO- '$tmpTARGETDDURL' |dd of=$(list-devices disk |head -n1) bs=10M status=progress';
-  [[ "$UNZIP" == '1' && "$tmpTARGET" != 'minstackos' ]] && PIPECMDSTR='wget -qO- '$tmpTARGETDDURL' |tar zOx |dd of=$(list-devices disk |head -n1) bs=10M status=progress';
+  [[ "$UNZIP" == '1' && "$tmpTARGET" != 'openeuler' ]] && PIPECMDSTR='wget -qO- '$tmpTARGETDDURL' |tar zOx |dd of=$(list-devices disk |head -n1) bs=10M status=progress';
   [[ "$UNZIP" == '2' ]] && PIPECMDSTR='wget -qO- '$tmpTARGETDDURL' |gunzip -dc |dd of=$(list-devices disk |head -n1) bs=10M status=progress';
-  [[ "$tmpTARGET" == 'minstackos' ]] && PIPECMDSTR='(for i in `seq -w 0 100`;do wget -qO- --no-check-certificate '$tmpTARGETDDURL'$i; done)|tar zOx |dd of=$(list-devices disk |head -n1) bs=10M status=progress';
+  [[ "$tmpTARGET" == 'openeuler' ]] && PIPECMDSTR='(for i in `seq -w 0 100`;do wget -qO- --no-check-certificate '$tmpTARGETDDURL'$i; done)|tar zOx |dd of=$(list-devices disk |head -n1) bs=10M status=progress';
 
   cat >$topdir/$remasteringdir/initramfs/preseed.cfg<<EOF
 d-i preseed/early_command string anna-install
@@ -1095,7 +1095,7 @@ UNZIP=''
 IMGSIZE=''
 
 echo -en "\n - Checking TARGET ......."
-[[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" != 'minstackos' ]] && CheckTarget $tmpTARGETDDURL || echo -en "[ \033[32m genmode,skipping!! \033[0m ]"
+[[ "$tmpTARGETMODE" == '0' && "$tmpTARGET" != 'openeuler' ]] && CheckTarget $tmpTARGETDDURL || echo -en "[ \033[32m genmode,skipping!! \033[0m ]"
 
 sleep 2s
 
