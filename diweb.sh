@@ -1080,7 +1080,7 @@ echo -e "\n \033[36m # Checking Prerequisites: \033[0m"
 echo -en "\n - Checking deps ......:"
 if [[ "$tmpTARGET" == 'debianbase' ]] && [[ "$tmpTARGETMODE" == '1' ]]; then
   CheckDependence wget,ar,awk,grep,sed,cut,cat,cpio,curl,gzip,find,dirname,basename,xzcat,zcat,md5sum,sha1sum,sha256sum;
-elif [[ "$tmpTARGET" == 'minstackos' ]] && [[ "$tmpTARGETMODE" == '1' ]] && [[ "$tmpBUILD" == '1' ]] ; then
+elif [[ "$tmpTARGET" == 'openeuler' ]] && [[ "$tmpTARGETMODE" == '1' ]] && [[ "$tmpBUILD" == '1' ]] ; then
   CheckDependence wget,ar,awk,grep,sed,cut,cat,cpio,curl,gzip,find,dirname,basename,xzcat,zcat,diskutil;
 else
   CheckDependence wget,ar,awk,grep,sed,cut,cat,cpio,curl,gzip,find,dirname,basename,xzcat,zcat;
